@@ -15,7 +15,7 @@ var app = {
     },
 
     initialize: function() {
-       // var self = this;
+        var self = this;
        // this.store = new LocalStorageStore(function() {
 
          //   self.showAlert('store initialised','Info');
@@ -25,18 +25,10 @@ var app = {
 
         // $('.search-key').on('keyup', $.proxy(this.findByName, this));
 
-      
-    console.log('findAll');
-    $.ajax({
-        type: 'GET',
-        url: 'http://pizg.net/slim/app/wines',
-        crossdomain:true,
-        dataType: "json", // data type of response
-        success: this.renderTheList
-    }).done(function(data) {
-
-        //console.log(data, "this is a response"); 
-    });
+        $( "#refr" ).click(function() {
+            self.testit();
+        });
+        this.getWines();
 
     },
 
@@ -48,6 +40,28 @@ var app = {
             
             alert(title ? (title + ": " + message) : message);
         }
+    },
+
+    testit: function() {
+
+       this.getWines();
+    }
+
+    ,
+
+    getWines: function () {
+
+        console.log('dd');
+        $.ajax({
+            type: 'GET',
+            url: 'http://pizg.net/slim/app/wines',
+            crossdomain:true,
+            dataType: "json", // data type of response
+            success: this.renderTheList
+        }).done(function(data) {
+
+            //console.log(data, "this is a response"); 
+        });
     },
 
     renderTheList: function (wines) {
