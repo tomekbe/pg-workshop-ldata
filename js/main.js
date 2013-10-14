@@ -9,7 +9,7 @@ var app = {
             $('.employee-list').empty();
             for (var i=0; i<l; i++) {
                 e = employees[i];
-                $('.employee-list').append('<li><a href="#employees/' + e.id + '">' + e.firstName + ' ' + e.lastName + '</a></li>');
+                $('.list-view').append('<li><a href="#employees/' + e.id + '">' + e.firstName + ' ' + e.lastName + '</a></li>');
             }
         });
     },
@@ -72,8 +72,11 @@ var app = {
            $('.employee-list').empty();
             for (var i=0; i<l; i++) {
                 e = wines.wine[i];
-                $('.employee-list').append('<li><a href="#employees/' + e.name+ '">' + e.id + ' ' + e.name + '</a></li>');
+                $('.employee-list').append('<li><a href="#employees/' + e.name+ '">' + e.name + '</a></li>');
+
             }
+             $(".employee-list").listview("refresh");
+
         
 
 

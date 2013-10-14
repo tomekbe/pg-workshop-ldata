@@ -1,18 +1,42 @@
 <html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+	<script src="lib/jquery-1.8.2.min.js"></script>
+<script src="lib/jquery.mobile-1.2.1.min.js"></script>
+<script src="js/main.js"></script>
+<script src="phonegap.js"></script>
+</head>
 <body>
 
-<div class='header'><h1>Home</h1></div>
 <div class='search-view'>
 
-<ul class='employee-list'></ul>
 
-<button type="button" value="refresh" id="refr">Refresh It</button>
+
+
 
 </div>
 
-<script src="lib/jquery-1.8.2.min.js"></script>
-<script src="js/main.js"></script>
-<script src="phonegap.js"></script>
+
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>Wine List</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>Hello world</p>		
+	
+		
+	</div><!-- /content -->
+		<ul data-role="listview" class="employee-list"> <li><a href="#">Acura</a></li> </ul>
+
+			<button type="button" value="refresh" id="refr">Refresh It</button>
+</div><!-- /page -->
+
+
+
+
 </body>
 
 
