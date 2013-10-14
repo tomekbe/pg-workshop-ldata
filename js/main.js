@@ -15,12 +15,29 @@ var app = {
     },
 
     initialize: function() {
-        var self = this;
-        this.store = new LocalStorageStore(function() {
+       // var self = this;
+       // this.store = new LocalStorageStore(function() {
 
-            self.showAlert('store initialised','Info');
-        }, function() { self.showAlert('failure')});
-         $('.search-key').on('keyup', $.proxy(this.findByName, this));
+         //   self.showAlert('store initialised','Info');
+        //}, 
+
+      //  function() { self.showAlert('failure')});
+
+        // $('.search-key').on('keyup', $.proxy(this.findByName, this));
+
+      
+    console.log('findAll');
+    $.ajax({
+        type: 'GET',
+        url: 'http://pizg.net/slim/app/wines',
+        crossdomain:true,
+        dataType: "json", // data type of response
+        success: this.renderTheList
+    }).done(function(data) {
+
+        //console.log(data, "this is a response"); 
+    });
+
     },
 
     showAlert: function (message, title) {
@@ -31,7 +48,24 @@ var app = {
             
             alert(title ? (title + ": " + message) : message);
         }
+    },
+
+    renderTheList: function (wines) {
+        console.log(wines.wine[0], "the response",wines.wine.length);
+
+           var l = wines.wine.length;
+           var e;
+           $('.employee-list').empty();
+            for (var i=0; i<l; i++) {
+                e = wines.wine[i];
+                $('.employee-list').append('<li><a href="#employees/' + e.name+ '">' + e.id + ' ' + e.name + '</a></li>');
+            }
+        
+
+
     }
+
+ 
 
 };
 
