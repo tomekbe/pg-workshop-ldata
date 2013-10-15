@@ -1,5 +1,5 @@
 var app = {
-
+ 
     findByName: function() {
       
 
@@ -25,9 +25,13 @@ var app = {
 
         // $('.search-key').on('keyup', $.proxy(this.findByName, this));
 
-        $( "#refr" ).click(function() {
-            self.testit();
-        });
+       // $('#refr').click(function() {
+            //self.testit();
+         //   alert("dubud");
+        //});
+
+
+
         this.getWines();
 
     },
@@ -66,16 +70,23 @@ var app = {
 
     renderTheList: function (wines) {
         console.log(wines.wine[0], "the response",wines.wine.length);
-
+            var self =this;
            var l = wines.wine.length;
            var e;
            $('.employee-list').empty();
-            for (var i=0; i<l; i++) {
+           
+           for (var i=0; i<l; i++) {
                 e = wines.wine[i];
                 $('.employee-list').append('<li><a href="#employees/' + e.name+ '">' + e.name + '</a></li>');
 
             }
-             $(".employee-list").listview("refresh");
+           $(".employee-list").listview("refresh");
+           
+           $('#refr').bind( "click", function(event, ui) {
+                //self.getWines();
+                console.log("hej ho", this, self);
+           });
+
 
         
 
